@@ -206,7 +206,7 @@
     
     var token = md5(tokenData);
 
-    var baseUrl = 'https://player.m2fmovie.com/embed/video';
+    var baseUrl = 'https://play.m2fhd.com/embed/video';
     var iframeUrl = baseUrl + '?id=' + encodeURIComponent(params.id) + 
                     '&ts=' + timestamp + 
                     '&token=' + encodeURIComponent(token);
@@ -296,7 +296,7 @@
 
     // Load report issue script
     var reportScript = document.createElement('script');
-    reportScript.src = 'https://player.m2fmovie.com/script/inc/reportIssue.js';
+    reportScript.src = 'https://play.m2fhd.com/script/inc/reportIssue.js';
     reportScript.async = true;
     reportScript.onload = function() {
         console.log('[m2f.player] Report issue script loaded');
