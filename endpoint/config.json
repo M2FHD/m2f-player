@@ -1,0 +1,53 @@
+{
+  "time_stamp": "2026-08-19 02:37:06",
+  "_comment": "M2F API Config - Endpoint",
+  "contact_telegram": "https://telegram.me/M2FMovie",
+  "movies_series_api": {
+    "api_url": "https://play.m2fhd.com",
+    "player_script_url": "https://cdn.jsdelivr.net/gh/M2FHD/m2f-player@main/scripts/main-player.js",
+    "movies_update": "https://play.m2fhd.com/api/update-movies",
+    "series_update": "https://play.m2fhd.com/api/update-series"
+  },
+  "porn_av_api": {
+    "api_url": "https://play.m2fhd.com",
+    "Porn_player_script_url": "https://cdn.jsdelivr.net/gh/M2FHD/m2f-player@main/scripts/main-porn-player.js",
+    "porn_update": "https://play.m2fhd.com/api/update-porn"
+  },
+  "_notes": {
+    "api_docs": "https://play.m2fhd.com/docs",
+    "important_note": [
+      "แนะนำให้ดาวน์โหลด poster, backdrop และข้อมูลอื่น ๆ จาก API มาจัดเก็บในฐานข้อมูล/เซิร์ฟเวอร์ของท่านเอง",
+      "เพื่อป้องกันปัญหา Rate Limit และรองรับการใช้งานแบบ Offline Cache",
+      "หลังจากซิงค์ข้อมูลครั้งแรกแล้ว ควรใช้ endpoint update เพื่อดึงเฉพาะรายการที่มีการอัปเดตใหม่เท่านั้น"
+    ],
+    "sound_type_mapping": {
+      "0": "ไม่ระบุ",
+      "1": "พากย์ไทย",
+      "2": "ซับไทย",
+      "3": "ออริจินัล (ซาวด์แทร็ก)",
+      "4": "เสียงไทยโรง"
+    },
+    "genres_mapping": {
+      "28": "Action (แอ็คชั่น)",
+      "12": "Adventure (ผจญภัย)",
+      "16": "Animation (แอนิเมชั่น)",
+      "35": "Comedy (ตลก)",
+      "80": "Crime (อาชญากรรม)",
+      "99": "Documentary (สารคดี)",
+      "18": "Drama (หนังชีวิต)",
+      "10751": "Family (ครอบครัว)",
+      "14": "Fantasy (แฟนตาซี)",
+      "36": "History (ประวัติศาสตร์)",
+      "27": "Horror (สยองขวัญ)",
+      "10402": "Music (เพลง)",
+      "9648": "Mystery (ลึกลับ)",
+      "10749": "Romance (โรแมนติก)",
+      "878": "Science Fiction (ไซไฟ)",
+      "10770": "TV Movie (ทีวีหนัง)",
+      "53": "Thriller (ระทึกขวัญ)",
+      "10752": "War (สงคราม)",
+      "37": "Western (คาวบอย)"
+    },
+    "trailer_key_usage": "เป็น YouTube Video ID ใช้สร้างลิงก์ trailer ได้สองแบบ: ดูแบบเต็มหน้าจอใช้ 'https://www.youtube.com/watch?v={trailer_key}' หรือ embed ใช้ 'https://www.youtube.com/embed/{trailer_key}' ตัวอย่าง: trailer_key = '2zwJiNN0QBc' → https://www.youtube.com/watch?v=2zwJiNN0QBc"
+  }
+}
