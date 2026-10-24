@@ -3,20 +3,19 @@
   if (window.__tgInviteLoaded) return;
   window.__tgInviteLoaded = true;
 
-  /* ================== ตั้งค่าหลัก ================== */
   var defaults = {
-    telegramUrl: 'https://t.me/doonungfree',    // ← เปลี่ยนเป็นลิงก์กลุ่ม Telegram ของคุณ
-    title: 'เข้ากลุ่มดูหนังฟรี',                 // ข้อความหลัก
-    subtitle: 'ดูหนังออนไลน์ HD บน Telegram',   // ข้อความรอง (แสดงเฉพาะจอใหญ่)
-    imageUrl: '',         // ว่างไว้ = ใช้ไอคอนที่ฝังในตัวสคริปต์ (หรือใส่ URL รูปอื่นแทนได้)
-    delayMs: 1500,        // ดีเลย์ก่อนปุ่มเด้งขึ้น (มิลลิวินาที)
-    hideHours: 0,        // ซ่อนกี่ชั่วโมงหลังกดปิด
-    hideAfterClick: true, // ซ่อนด้วยเมื่อผู้ใช้กดเข้ากลุ่ม
+    telegramUrl: 'https://t.me/doonungfree',    
+    title: 'เข้ากลุ่มดูหนังฟรี',                
+    subtitle: 'ดูหนังออนไลน์ HD บน Telegram',   
+    imageUrl: '',         
+    delayMs: 1500,       
+    hideHours: 24,       
+    hideAfterClick: true, 
     storageKey: 'tgInviteHiddenUntil'
   };
   var cfg = Object.assign({}, defaults, window.TelegramInviteConfig || {});
 
-  /* ไอคอนฝังในตัวสคริปต์ (ไม่ต้องอัปโหลดไฟล์รูปประกอบ) — จะใช้รูปจาก imageUrl แทนได้ถ้ากำหนด */
+  
   var DEFAULT_ICON = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20128%20128%22%20width%3D%22128%22%20height%3D%22128%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22tgw-bg%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%233BBDF8%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%231B8AC4%22%2F%3E%3C%2FlinearGradient%3E%3Cmask%20id%3D%22tgw-holes%22%3E%3Crect%20width%3D%22128%22%20height%3D%22128%22%20fill%3D%22%23fff%22%2F%3E%3Ccircle%20cx%3D%22120.5%22%20cy%3D%2264%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%22109.7%22%20cy%3D%2297.2%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2281.5%22%20cy%3D%22117.7%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2246.5%22%20cy%3D%22117.7%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2218.3%22%20cy%3D%2297.2%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%227.5%22%20cy%3D%2264%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2218.3%22%20cy%3D%2230.8%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2246.5%22%20cy%3D%2210.3%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%2281.5%22%20cy%3D%2210.3%22%20r%3D%223.2%22%2F%3E%3Ccircle%20cx%3D%22109.7%22%20cy%3D%2230.8%22%20r%3D%223.2%22%2F%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2264%22%20r%3D%2264%22%20fill%3D%22%23FFFFFF%22%20mask%3D%22url(%23tgw-holes)%22%2F%3E%3Cg%20transform%3D%22translate(-2.39%20-11.72)%20scale(6)%22%3E%3Cpath%20fill%3D%22url(%23tgw-bg)%22%20d%3D%22M16.906%207.224c.1-.002.321.023.465.14a.506.506%200%200%201%20.171.325c.016.093.036.306.02.472-.18%201.898-.962%206.502-1.36%208.627-.168.9-.499%201.201-.82%201.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184%203.247-2.977%203.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793%201.14-5.061%203.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663%203.498-1.524%205.83-2.529%206.998-3.014%203.332-1.386%204.025-1.627%204.476-1.635z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
   var IMG = cfg.imageUrl || DEFAULT_ICON;
 
@@ -25,7 +24,6 @@
     return String(s).replace(/[&<>"']/g, function (c) { return map[c]; });
   }
 
-  /* ================== แคชเบราว์เซอร์ (localStorage) ================== */
   function getHiddenUntil() {
     try { return Number(localStorage.getItem(cfg.storageKey)) || 0; } catch (e) { return 0; }
   }
@@ -33,7 +31,6 @@
     try { localStorage.setItem(cfg.storageKey, String(Date.now() + cfg.hideHours * 36e5)); } catch (e) {}
   }
 
-  /* ================== หน้าตาวิดเจ็ต ================== */
   var CSS = `
     .tgw-root{position:fixed;right:16px;bottom:calc(28px + env(safe-area-inset-bottom,0px));z-index:2147483000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans Thai","Sukhumvit Set",sans-serif;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .35s ease,transform .35s ease;pointer-events:none;-webkit-user-select:none;user-select:none}
     .tgw-root.tgw-show{opacity:1;transform:none;pointer-events:auto}
@@ -75,7 +72,6 @@
       '</button>' +
     '</div>';
 
-  /* ================== ติดตั้งวิดเจ็ต ================== */
   var host, rootEl, removed = false;
 
   function mount() {
@@ -109,14 +105,13 @@
   }
 
   function init() {
-    if (getHiddenUntil() > Date.now()) return; // เพิ่งกดปิดไป ยังไม่ถึงเวลาแสดงอีก
+    if (getHiddenUntil() > Date.now()) return; 
     mount();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
-  /* API สำหรับเรียกใช้เอง (ถ้าต้องการ) */
   window.TelegramInvite = {
     hide: function () { setHidden(); if (rootEl) remove(); },
     reset: function () { try { localStorage.removeItem(cfg.storageKey); } catch (e) {} }
